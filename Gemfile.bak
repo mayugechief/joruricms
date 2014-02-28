@@ -26,4 +26,5 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'ruby-ldap', '0.9.12'
+require "yaml"
+gem 'ruby-ldap', '0.9.12' if ::YAML.load_file(File.dirname(__FILE__) + "/config/application.yml")["sys"]["use_ldap"]
